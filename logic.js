@@ -3,6 +3,14 @@ const tasks = require("./tasks")
 const fs = require("fs")
 const prompt = require('prompt-sync')()
 
+function writingOnJasonFile() {
+  fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
+    if (err) {
+      console.log("Write file error.")
+    }
+  })
+}
+
 module.exports = {
   add() {
     const title = prompt("What is the task's title: ")
@@ -27,11 +35,8 @@ module.exports = {
       completed
     })
 
-    fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
-      if (err) {
-        console.log("Write file error.")
-      }
-    })
+    writingOnJasonFile()
+    
   },
 
   update() {
@@ -81,11 +86,8 @@ module.exports = {
       console.log("We could not find the requested id task.")
     }
 
-    fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
-      if (err) {
-        console.log("Write file error.")
-      }
-    })
+    writingOnJasonFile()
+
   },
 
   delete() {
@@ -99,10 +101,7 @@ module.exports = {
 
     console.log("Your task was successully deleted.")
 
-    fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
-      if (err) {
-        console.log("Write file error.")
-      }
-    })
+    writingOnJasonFile()
+
   }
 }
