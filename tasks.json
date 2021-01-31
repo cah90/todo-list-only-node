@@ -13,6 +13,20 @@
       "description": "finish the update for this challenge",
       "deadline": "12/12/2020",
       "completed": "no"
+    },
+    {
+      "id": 4,
+      "title": "something",
+      "description": "something",
+      "deadline": "20/01/2025",
+      "completed": "no"
+    },
+    {
+      "id": 5,
+      "title": null,
+      "description": null,
+      "deadline": null,
+      "completed": null
     }
   ]
 }
