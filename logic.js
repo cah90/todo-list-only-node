@@ -3,7 +3,7 @@ const tasks = require("./tasks")
 const fs = require("fs")
 const prompt = require('prompt-sync')()
 
-function writingOnJasonFile() {
+function writingOnJSONFile() {
   fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
     if (err) {
       console.log("Write file error.")
@@ -35,7 +35,7 @@ module.exports = {
       completed
     })
 
-    writingOnJasonFile()
+    writingOnJSONFile()
     
   },
 
@@ -86,7 +86,7 @@ module.exports = {
       console.log("We could not find the requested id task.")
     }
 
-    writingOnJasonFile()
+    writingOnJSONFile()
 
   },
 
@@ -101,7 +101,7 @@ module.exports = {
 
     console.log("Your task was successully deleted.")
 
-    writingOnJasonFile()
+    writingOnJSONFile()
 
   }
 }
