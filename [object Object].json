@@ -1,0 +1,46 @@
+{
+  "allTasks": [
+    {
+      "id": 2,
+      "title": "new title",
+      "description": "what a it support does",
+      "deadline": "12/12/2022",
+      "completed": "yes"
+    },
+    {
+      "id": 3,
+      "title": "finish update",
+      "description": "finish the update for this challenge",
+      "deadline": "12/12/2020",
+      "completed": "no"
+    },
+    {
+      "id": 4,
+      "title": "something",
+      "description": "something",
+      "deadline": "20/01/2025",
+      "completed": "no"
+    },
+    {
+      "id": 5,
+      "title": null,
+      "description": null,
+      "deadline": null,
+      "completed": null
+    },
+    {
+      "id": 6,
+      "title": "something",
+      "description": "something",
+      "deadline": "something",
+      "completed": "someting"
+    },
+    {
+      "id": 7,
+      "title": "test",
+      "description": "test",
+      "deadline": "test",
+      "completed": "test"
+    }
+  ]
+}

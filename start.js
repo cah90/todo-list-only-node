@@ -7,6 +7,7 @@ const whichOperation = prompt("Write down what you would like to do: add, update
 logic[whichOperation]()
 
 
+// PREVIUS CODE
 // if (whichOperation == 'add') {
 //   logic.add()
   

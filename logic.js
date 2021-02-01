@@ -3,8 +3,8 @@ const tasks = require("./tasks")
 const fs = require("fs")
 const prompt = require('prompt-sync')()
 
-function writingOnJSONFile() {
-  fs.writeFile("tasks.json", JSON.stringify(tasks, null, 2), function(err) {
+function writingOnJSONFile(filename, data) {
+  fs.writeFile(filename, JSON.stringify(data, null, 2), function(err) {
     if (err) {
       console.log("Write file error.")
     }
@@ -35,8 +35,10 @@ module.exports = {
       completed
     })
 
-    writingOnJSONFile()
-    
+    writingOnJSONFile("tasks.json", tasks)
+
+    console.log("Your new task was created!")
+
   },
 
   update() {
@@ -58,27 +60,35 @@ module.exports = {
 
         const fieldToUpdate = prompt("Which field you want to update: title, description, deadline, completed: ")
 
-        if ( fieldToUpdate == "title" ) {
-          const newValue = prompt("Type another title: ")
+        const newValue = prompt(`Type another ${fieldToUpdate}: `)
 
-          tasks.allTasks[i].title = newValue
+        tasks.allTasks[i][fieldToUpdate] = newValue
 
-        } else if ( fieldToUpdate == "description" ) {
-          const newValue = prompt("Type another descriptopn: ")
+        console.log("The new value was updated!")
 
-          tasks.allTasks[i].description = newValue
 
-        } else if ( fieldToUpdate == "deadline" ) {
-          const newValue = prompt("Type another deadline: ")
+        // PREVIUS CODE
+        // if ( fieldToUpdate == "title" ) {
+        //   const newValue = prompt("Type another title: ")
 
-          tasks.allTasks[i].deadline = newValue
+        //   tasks.allTasks[i].title = newValue
 
-        } else if ( fieldToUpdate == "completed" ) {
-          const newValue = prompt("Was the task completed? : ")
+        // } else if ( fieldToUpdate == "description" ) {
+        //   const newValue = prompt("Type another descriptopn: ")
 
-          tasks.allTasks[i].completed = newValue
+        //   tasks.allTasks[i].description = newValue
 
-        } 
+        // } else if ( fieldToUpdate == "deadline" ) {
+        //   const newValue = prompt("Type another deadline: ")
+
+        //   tasks.allTasks[i].deadline = newValue
+
+        // } else if ( fieldToUpdate == "completed" ) {
+        //   const newValue = prompt("Was the task completed? : ")
+
+        //   tasks.allTasks[i].completed = newValue
+
+        // } 
       }
     }
 
@@ -86,7 +96,7 @@ module.exports = {
       console.log("We could not find the requested id task.")
     }
 
-    writingOnJSONFile()
+    writingOnJSONFile("tasks.json", tasks)
 
   },
 
@@ -95,13 +105,13 @@ module.exports = {
 
     for( let i = 0; i < tasks.allTasks.length; i++) {
       if (taskId == tasks.allTasks[i].id) {
-        tasks.allTasks.splice(tasks.allTasks[i],1)
+        tasks.allTasks.splice(i,1)
       }
     }
 
     console.log("Your task was successully deleted.")
 
-    writingOnJSONFile()
+    writingOnJSONFile("tasks.json", tasks)
 
   }
 }
